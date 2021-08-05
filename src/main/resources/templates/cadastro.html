@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout-padrao}">
+
+<head>
+</head>
+<body>
+
+<section class="section-content padding-y" layout:fragment="conteudo">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="card col-6">
+                <article class="card-body">
+                    <header class="mb-4">
+                        <h4 class="card-title">Cadastrar-se</h4>
+                    </header>
+                    <form class="block-register">
+                        <div class="form-group form-row">
+                            <label class="col-md-3 col-form-label">Apelido</label>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Seu João">
+                            </div>
+                        </div>
+                        <div class="form-group form-row">
+                            <label class="col-md-3 col-form-label">Nome Completo</label>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Primeiro Nome">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Ultimo Nome">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-md-3 col-form-label">CPF/CNPJ</label>
+                            <div class="col-2">
+                                <select class="custom-select form-control">
+                                    <option>CPF</option>
+                                    <option>CNPJ</option>
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group">
+                                    <input name="" class="form-control" placeholder="000.000.000-00" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-md-3 col-form-label">Telefone</label>
+                            <div class="col-9">
+                                <div class="input-group">
+                                    <input type="text" style="max-width:60px;" class="form-control" placeholder="DDD">
+                                    <input name="" class="form-control" placeholder="999 99-9999" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-row">
+                            <label class="col-md-3 col-form-label">Gênero</label>
+                            <div class="col-4">
+                                <select class="custom-select form-control">
+                                    <option></option>
+                                    <option>Masculino</option>
+                                    <option>Feminino</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-md-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" placeholder="Ex. marcusantunius@gmail.com">
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group form-row">
+                            <label class="col-md-3 col-form-label">Endereço</label>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Rua Manoel Ferreira 677">
+                            </div>
+                        </div>
+                        <div class="form-group form-row">
+
+                            <label class="col-md-3"> </label>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="CEP">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Bairro">
+                            </div>
+                        </div>
+                        <div class="form-group form-row">
+                            <label class="col-md-3 col-form-label"></label>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Cidade">
+                            </div>
+                            <div class="col">
+                                <select class="custom-select form-control">
+                                    <option selected disabled>Estado</option>
+                                    <option>Paraná</option>
+                                    <option>São Paulo</option>
+                                    <option>Minas Gerais</option>
+                                    <option>Alagoas</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-md-3 col-form-label">Senha</label>
+                            <div class="col-6">
+                                <input type="password" class="form-control mb-3" placeholder="Criar senha">
+                                <input type="password" class="form-control" placeholder="Repetir Senha">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <div class="col-sm-9 offset-sm-3">
+                                <label class="custom-control custom-checkbox">
+                                    <div class="row">
+                                        <div class="custom-control-label" for="customCheck1"><input type="checkbox"
+                                                                                                    class="custom-control-input"
+                                                                                                    id="customCheck1">
+                                            Eu aceito os <a href="#"
+                                                            target="_blank">Termos
+                                                e condições</a></div>
+                                    </div>
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <div class="form-row mb-2">
+                            <div class="col-sm-9 offset-sm-3">
+                                <button type="submit" class="btn btn-primary">Registrar</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </article> <!-- card-body end .// -->
+                <div class="card-footer text-center">Você tem uma conta? <a href="">Entrar</a></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<footer class="section-footer border-top bg">
+    <div class="container">
+
+        <section class="footer-bottom row">
+            <div class="col-md-2">
+                <p class="text-muted"> © 2019 Eco </p>
+            </div>
+            <div class="col-md-8 text-md-center">
+                <span class="px-2">atendimento@ecomerce.com.br</span>
+                <span class="px-2">+55-46-991085937</span>
+                <span class="px-2">Av Tupi 123</span>
+            </div>
+            <div class="col-md-2 text-md-right text-muted">
+                <i class="fab fa-lg fa-cc-visa"></i>
+                <i class="fab fa-lg fa-cc-paypal"></i>
+                <i class="fab fa-lg fa-cc-mastercard"></i>
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>
