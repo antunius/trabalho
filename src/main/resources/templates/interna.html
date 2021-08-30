@@ -1,83 +1,75 @@
 <!DOCTYPE html>
-
 <html lang="pt"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout-padrao}">
 <head>
-
+    <script type="text/javascript" th:src="@{/js/produto.js}"></script>
 </head>
 <body>
 <section layout:fragment="conteudo" class="section-content padding-y">
     <div class="container">
         <div class="card">
-            <div class="row">
+            <form onsubmit="return adicionarProduto();" th:action="@{/carrinho}" th:method="GET">
 
-                <aside class="col-md-6">
-                    <div class="imgs">
-                        <div class="img-grande">
-                            <a>
-                                <img width="488px" height="450px"
-                                     src="img/processador.jpg">
-                            </a>
+                <div class="row">
+                    <aside class="col-md-6">
+                        <div class="imgs">
+                            <div class="img-grande">
+                                <a>
+                                    <img width="488px" height="450px"
+                                         th:src="@{/images/{img}(img=${produto.getImagem()})}">
+                                </a>
 
-                        </div>
-                        <div class="outras-imagens">
-                            <a href="#" class="item-img">
-                                <img width="58px" height="54px"
-                                     src="img/processador.jpg">
-                            </a>
-                            <a href="#" class="item-img">
-                                <img width="58px" height="54px"
-                                     src="img/processador.jpg">
-                            </a>
-                            <a href="#" class="item-img">
-                                <img width="58px" height="54px"
-                                     src="img/processador.jpg">
-                            </a>
-                            <a href="#" class="item-img">
-                                <img width="58px" height="54px"
-                                     src="img/processador.jpg">
-                            </a>
-                        </div>
-                    </div>
-                </aside>
-                <main class="col-md-6 border-light">
-                    <h2 class="title" th:text="${produto.nome}"></h2>
-                    <p th:text="${produto.id}"></p>
-                    <div class="row">
-                        <div class="mb-3 col-6">
-                            <label> Formas de Pagamento </label>
-                            <div class="text-md-right text-muted">
-                                <i class="fab fa-lg fa-cc-visa"></i>
-                                <i class="fab fa-lg fa-cc-paypal"></i>
-                                <i class="fab fa-lg fa-cc-mastercard"></i>
+                            </div>
+                            <div class="d-flex justify-content-center outras-imagens">
+
+                                <div class="col-2" th:each="imagemProduto : ${produto.getImagemProdutos()}">
+                                    <a href="#" class="item-img">
+                                        <img width="58px" height="54px"
+                                             th:src="@{/images/{img}(img=${imagemProduto.getNome()})}">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <a th:href="carrinho" class="btn btn-lg btn-primary"> Comprar </a>
+                    </aside>
+                    <main class="col-md-6 border-light">
+                        <h2 class="title" th:name="produto-nome" th:text="${produto.nome}"></h2>
+                        <p th:name="produto-id" th:text="${produto.id}"></p>
+                        <div class="row">
+                            <div class="mb-3 col-6">
+                                <label> Formas de Pagamento </label>
+                                <div class="text-md-right text-muted">
+                                    <i class="fab fa-lg fa-cc-visa"></i>
+                                    <i class="fab fa-lg fa-cc-paypal"></i>
+                                    <i class="fab fa-lg fa-cc-mastercard"></i>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-lg btn-primary" type="submit"> Comprar</button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="preco mt-1" th:text="${produto.valor}"></div>
-                    <p class="mt-1"
-                       th:text="'R$ ' + ${#numbers.formatDecimal(produto.getValorParcelado(),3,'POINT',2,'COMMA')}"></p>
-                    <hr>
-                    <div class="col-6">
-                        <div class="input-group">
-                            <input type="text" class="form-control col-6" placeholder="Digite seu CEP">
-                            <span class="input-group-append">
+                        <div class="preco mt-1" th:name="produto-valor" th:text="${produto.valor}"></div>
+                        <p class="mt-1"
+                           th:text="'R$ ' + ${#numbers.formatDecimal(produto.getValorParcelado(),3,'POINT',2,'COMMA')}"></p>
+                        <hr>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control col-6" placeholder="Digite seu CEP">
+                                <span class="input-group-append">
                             <button class="btn btn-primary">Frete</button>
                         </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
+                        <div class="row">
 
-                    </div>
+                        </div>
 
-                </main>
-            </div>
+                    </main>
+                </div>
+            </form>
         </div>
     </div>
 

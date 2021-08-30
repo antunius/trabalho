@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UsuarioServiceImpl usuarioServiceImpl;
@@ -31,35 +31,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.and().logout()
 			.logoutSuccessUrl("/login")
 			.and().authorizeRequests()
-			.antMatchers("/index","/cadastro","/interna").permitAll();
+			.antMatchers("/", "/cadastro", "/produto/*", "/usuario/**").permitAll()
+			.and().authorizeRequests().anyRequest().authenticated();
 	}
-	
+
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring()
-				.antMatchers("/css/**")
-				.antMatchers("/js/**")
-				.antMatchers("/images/**")
-				.antMatchers("/assets/**")
-				.antMatchers("/vendors/**")
-				.antMatchers("/webjars/**");
+			.antMatchers("/css/**")
+			.antMatchers("/js/**")
+			.antMatchers("/images/**")
+			.antMatchers("/assets/**")
+			.antMatchers("/vendors/**")
+			.antMatchers("/webjars/**");
 	}
-	
+
 	@Bean
 	@Override
 	protected UserDetailsService userDetailsService() {
 		return usuarioServiceImpl;
 	}
-	
+
 	@Bean
 	protected PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) 
-				throws Exception {
-		auth.userDetailsService( userDetailsService() ).passwordEncoder( passwordEncoder() );
+	protected void configure(AuthenticationManagerBuilder auth)
+		throws Exception {
+		auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
 	}
 }
 

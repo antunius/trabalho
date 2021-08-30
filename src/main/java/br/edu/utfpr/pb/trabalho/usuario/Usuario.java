@@ -11,6 +11,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -36,7 +37,7 @@ public class Usuario implements Serializable, UserDetails {
 	
 	@ManyToMany(cascade = CascadeType.ALL, 
 			fetch = FetchType.EAGER)
-	private Set<Permissao> permissoes;
+	private Set<Permissao> permissoes = new HashSet<>();
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

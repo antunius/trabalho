@@ -29,4 +29,8 @@ public class Permissao implements Serializable, GrantedAuthority {
 	public String getAuthority() {
 		return this.nome;
 	}
+
+	public Permissao(Integer id) {
+		this.id = id;
+	}
 }

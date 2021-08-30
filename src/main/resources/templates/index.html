@@ -19,7 +19,7 @@
                     <div href="#" class="card card-product-grid">
                         <a href="#" class="img-wrap">
                             <img width="200px" height="200px"
-                                 th:src="@{/images/{img}(img=${produto.imagem})}"/>
+                                 th:src="@{/images/{img}(img=${produto.getImagem()})}"/>
                         </a>
                         <figcaption class="info-wrap">
                             <a th:href="@{'/produto/'} + ${produto.getId()}" class="title"

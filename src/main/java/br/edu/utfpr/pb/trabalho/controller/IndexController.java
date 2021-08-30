@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-	private ProdutoService produtoService;
+	private final ProdutoService produtoService;
 
 	public IndexController(ProdutoService produtoService) {
 		this.produtoService = produtoService;
@@ -17,7 +17,7 @@ public class IndexController {
 
 	@GetMapping("")
 	public String index(Model model) {
-		model.addAttribute("produtos", produtoService.findAll(new PageRequest(0, 5)));
+		model.addAttribute("produtos", produtoService.buscarUltimosProdutosAdicionados());
 		return "index";
 	}
 
