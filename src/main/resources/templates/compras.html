@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout-padrao}">
+
+<head></head>
+<body>
+<section layout:fragment="conteudo" class="section-content padding-y">
+    <div class="container">
+        <header class="section-heading">
+            <h3 class="section-title">Compras</h3>
+        </header>
+
+        <div class="row">
+            <div class="card">
+                <table id="compras" class="table table-borderless table-shopping-cart">
+                    <thead class="text-muted">
+                    <tr class="small text-uppercase">
+                        <th scope="col">Numero do Pedido</th>
+                        <th scope="col">Nota Fiscal</th>
+                        <th scope="col">Valor Pedido</th>
+                        <th scope="col" width="120">Data</th>
+                        <th scope="col" class="text-right" width="200"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="compra : ${compras}">
+                        <td th:text="${compra.getId()}"></td>
+                        <td th:text="${compra.getNotaFiscal()}"></td>
+                        <td th:text="'R$ ' + ${#numbers.formatDecimal(compra.getValorTotal(),3,'POINT',2,'COMMA')}"></td>
+                        <td th:text="${compra.getData()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<footer class="section-footer border-top bg">
+    <div class="container">
+
+        <section class="footer-bottom row">
+            <div class="col-md-2">
+                <p class="text-muted"> © 2019 Eco </p>
+            </div>
+            <div class="col-md-8 text-md-center">
+                <span class="px-2">atendimento@ecomerce.com.br</span>
+                <span class="px-2">+55-46-991085937</span>
+                <span class="px-2">Av Tupi 123</span>
+            </div>
+            <div class="col-md-2 text-md-right text-muted">
+                <i class="fab fa-lg fa-cc-visa"></i>
+                <i class="fab fa-lg fa-cc-paypal"></i>
+                <i class="fab fa-lg fa-cc-mastercard"></i>
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

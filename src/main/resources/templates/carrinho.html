@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <main class="col-md-9">
-                <form th:action="@{/}" th:method="GET"  onsubmit="return finalizarCompra();">
+                <form onsubmit="return finalizarCompra();" th:action="@{/}" th:method="GET">
                     <div class="card">
 
                         <table id="carrinho-produtos" class="table table-borderless table-shopping-cart">
@@ -29,7 +29,7 @@
                         </table>
 
                         <div class="card-body border-top">
-                            <a href="#" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continuar Comprando
+                            <a href="/" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continuar Comprando
                             </a>
                             <button type="submit" class="btn btn-primary float-md-right"> Finalizar Compra <i
                                     class="fa fa-chevron-right"></i>

@@ -25,7 +25,16 @@ function adicionarProduto() {
         $('div[name=produto-valor]').text(),
         $('.img-grande img').attr('src')
     );
-    compraProdutos.push(new CompraProduto(produto, 1, produto.valor));
+    let found = false;
+    compraProdutos.forEach(compraProduto => {
+        if (compraProduto.produto.id === produto.id) {
+            compraProduto.quantidade++;
+            found = true;
+        }
+    });
+    if (!found) {
+        compraProdutos.push(new CompraProduto(produto, 1, produto.valor));
+    }
     setArrayStorage(compraProdutos);
 }
 

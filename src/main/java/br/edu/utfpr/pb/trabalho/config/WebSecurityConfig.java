@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UsuarioServiceImpl usuarioServiceImpl;
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and().logout()
 			.logoutSuccessUrl("/login")
 			.and().authorizeRequests()
-			.antMatchers("/", "/cadastro", "/produto/*", "/usuario/**").permitAll()
+			.antMatchers("/", "/redefinir-senha/","/usuario/redefinir-senha/", "/recuperar-senha", "/cadastro", "/produto/*", "/usuario/**").permitAll()
 			.and().authorizeRequests().anyRequest().authenticated();
 	}
 

@@ -25,9 +25,9 @@ public class CompraController {
 
 
 	@GetMapping
-	public String list(Model model) {
+	public String getCompras(Model model) {
 		model.addAttribute("compras", compraService.findAll());
-		return "compra/";
+		return "compras";
 	}
 
 	@PostMapping("/finalizar")
