@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("usuario")
 public class UsuarioController {
@@ -18,7 +20,7 @@ public class UsuarioController {
 
 	@PostMapping("/adicionar/")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void adicionarUsuario(Model model, @RequestBody UsuarioDTO usuarioDTO) {
+	public void adicionarUsuario(Model model, @Valid @RequestBody UsuarioDTO usuarioDTO) {
 		System.out.println(usuarioDTO);
 		usuarioService.save(usuarioDTO.toModel());
 	}

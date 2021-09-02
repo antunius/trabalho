@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class CompraServiceImpl extends CrudServiceImpl<Compra, Long> implements CompraService {
@@ -18,4 +19,8 @@ public class CompraServiceImpl extends CrudServiceImpl<Compra, Long> implements 
 		return compraRepository;
 	}
 
+	@Override
+	public Set<Compra> comprasbyUsuario(Long id) {
+		return compraRepository.findCompraByUsuarioId(id);
+	}
 }

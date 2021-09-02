@@ -31,7 +31,7 @@ public class Compra implements Serializable {
 
 	@Column(name = "observacoes", length = 2048)
 	private String observacoes;
-
+	private Long usuarioId;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "id.compra")
 	private List<CompraProduto> compraProdutos;

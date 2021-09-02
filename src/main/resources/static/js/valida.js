@@ -1,5 +1,4 @@
 $(function () {
-
     $('#form').validate({
         rules: {
             nome: {
@@ -83,7 +82,6 @@ $(function () {
                 equalTo: "Senhas não conferem."
             }
         },
-
 
     });
 });

@@ -18,11 +18,11 @@
                         <h4 class="card-title">Cadastrar-se</h4>
                     </header>
 
-                    <form class="block-register"  onsubmit="return adicionarUsuario();">
+                    <form id="form" class="block-register" onsubmit="return adicionarUsuario();">
                         <div class="form-group form-row">
                             <label class="col-md-3 col-form-label">Nome Completo</label>
                             <div class="col">
-                                <input type="text" class="form-control" id="nome" placeholder="Primeiro Nome">
+                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Primeiro Nome">
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" id="sobrenome" placeholder="Ultimo Nome">
@@ -121,12 +121,11 @@
                             <div class="col-sm-9 offset-sm-3">
                                 <label class="custom-control custom-checkbox">
                                     <div class="row">
-                                        <div class="custom-control-label" for="customCheck1"><input type="checkbox"
-                                                                                                    class="custom-control-input"
-                                                                                                    id="customCheck1">
+                                        <div class="custom-control-label" for="customCheck1">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
                                             Eu aceito os <a href="#"
                                                             target="_blank">Termos
-                                                e condições</a></div>
+                                            e condições</a></div>
                                     </div>
                                 </label>
 
@@ -168,5 +167,6 @@
         </section>
     </div>
 </footer>
+<script type="text/javascript" th:src="@{/js/valida.js}"></script>
 </body>
 </html>
